@@ -1,21 +1,9 @@
 import random
-choices = []
-
-def randomSelect(var):
-    listNumber = len(var) + 1
-    selected = random.randint(0, len(var))
-    print('your randomly selected msg:', var[selected])
-
-print('Welcome to Spin the wheel but without the wheel! To stop type ]/')
-
+l = []
 while True:
-    listNumber = len(choices) + 1
-    choice = input('Choice no. ' + str(listNumber) + ':')
-    if ']/' in choice:
-        #randomSelect(choices)
-        selected = random.randint(0, len(choices))
-        print('your randomly selected msg:', choices[selected])
+    c = input('Welcome to spin the wheel but with no wheel\nChoice {}: '.format(len(l)+1))
+    l.append(c)
+    if c == 'stop':
+        b = random.sample(l, 1)
+        print('We chose...', b[0])
         break
-    else:
-        choices.append(choice)
-        listNumber = len(choices) + 1
