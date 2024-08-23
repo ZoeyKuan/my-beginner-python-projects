@@ -1,9 +1,19 @@
 import random
 l = []
-while True:
-    c = input('Welcome to spin the wheel but with no wheel\nChoice {}: '.format(len(l)+1))
+c = ''
+mode = input('Welcome to spin the wheel but with no wheel\n1 to Choose one thing\n2 to reorder everything')
+while c != 'stop':
+    c = input('Choice {}: '.format(len(l)+1))
     l.append(c)
-    if c == 'stop':
-        b = random.sample(l, 1)
-        print('We chose...', b[0])
-        break
+l.pop()
+if mode == '1':
+    print('We chose...', random.sample(l, 1))
+if mode == '2':
+    str = ''
+    shuffled = random.sample(l, len(l))
+    for i in range(len(shuffled)):
+        if i < len(shuffled)-1:
+            str += shuffled[i] + ', '
+        else:
+            str += shuffled[i]
+    print('Reordered...\n'+str)
